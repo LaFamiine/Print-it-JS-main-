@@ -19,13 +19,34 @@ const slides = [
 //variable
 let compteur = 0;
 
+for (compteur = 0; compteur < slides.length; compteur++) { 
+    console.log(compteur < slides.length); 
+}
+
+compteur = 0;
+
+while (compteur < slides.length) {
+    console.log(compteur);
+    compteur++;
+}
+
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const tagLine = document.querySelector('#banner p');
 //fonction
 function changeImage() {
-	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
+	bannerImg.src = `./assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur].tagLine;
+}
+
+function nextSlide() {
+    compteur = (compteur + 1) % totalSlides; 
+    changeImage();
+}
+function prevSlide() {
+    compteur = (compteur - 1 + totalSlides) % totalSlides;
+    changeImage();
 }
 
 //evenement
