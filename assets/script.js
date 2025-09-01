@@ -18,17 +18,7 @@ const slides = [
 ]
 //variable
 let compteur = 0;
-
-for (compteur = 0; compteur < slides.length; compteur++) { 
-    console.log(compteur < slides.length); 
-}
-
-compteur = 0;
-
-while (compteur < slides.length) {
-    console.log(compteur);
-    compteur++;
-}
+const totalSlides = slides.length;
 
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
@@ -51,11 +41,11 @@ function prevSlide() {
 
 //evenement
 arrowLeft.addEventListener('click', function() {
-	compteur--;
-	changeImage();
+    compteur = (compteur - 1 + totalSlides) % totalSlides; 
+    changeImage();
 });
 
 arrowRight.addEventListener('click', function() {
-	compteur++;
-	changeImage();
+    compteur = (compteur + 1) % totalSlides; 
+    changeImage();
 });
