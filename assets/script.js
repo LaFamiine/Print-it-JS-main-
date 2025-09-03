@@ -38,6 +38,17 @@ function prevSlide() {
     compteur = (compteur - 1 + totalSlides) % totalSlides;
     changeImage();
 }
+function dot() {
+	const dotsContainer = document.querySelector('.dots');
+	slides.forEach((slide, index) => {
+		const dot = document.createElement('div');
+		dot.classList.add('dot_selected');
+		if (index === compteur) {
+			dot.classList.add('active');
+		}
+		dotsContainer.appendChild(dot);
+	});
+}
 
 //evenement
 arrowLeft.addEventListener('click', function() {
