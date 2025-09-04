@@ -42,11 +42,10 @@ function dot() {
 	const dotsContainer = document.querySelector('.dots');
 	slides.forEach((slide, index) => {
 		const dot = document.createElement('div');
-		dot.classList.add('dot_selected');
+		dot.classList.add('dot');
 		if (index === compteur) {
-			dot.classList.add('active');
+			dot.classList.add('dot_selected');
 		}
-		dotsContainer.appendChild(dot);
 	});
 }
 
